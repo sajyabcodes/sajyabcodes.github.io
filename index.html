@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <link rel="stylesheet" href="style.css">
+ <style>
+
+ </style>
+</head>
+<body>
+ <nav class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#">News</a>
+  <a href="#footer-heading">Contact</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i></a>
+ </nav>
+<header class="header">
+ <img src="pictures/mbawa1.jpg" />
+  <div class="header-text">
+   <h1>Hi! My Name is Abdulrahman Mohammed Bawa (MBAWA).
+    <h1 id='hausa'>Slm. Suna na Abdulrahman Mohammed Bawa (MBAWA).</h1>
+  </div>
+</header>
+<section id="about">
+ <p>Im my quest researching about crypto currencies and investment opportunities, I bring forth the best projects with the best potentials in the Blockchain industry.<br>
+Watch out my tutorials below with love from Mbawa.
+<br>
+  <p id='hausa'>
+A qoqarina na bincike a kasuwar kirifto currency da kuma damammaki na saka hannun jari, ina kawo muku mafi kyawawan projects wayanda zasu iya bada riba sosai a kasuwar blockchain.
+<br>
+Ku kalli vidiyoyi na a kasa tare da qauna daga Mbawa.
+  </p>
+ </p>
+</section>
+<br>
+<br>
+<!-- Videos-->
+
+<div class="container">
+
+ <div class="main-video">
+  <div class="video">
+   <video controls src="videos/OST-tutorial.mp4"></video>
+   <h3 class="title">01. yadda ake withdraw a ostmine</h3 >
+   </div>
+ </div>
+
+<div class="video-list">
+
+ <div class="vid active">
+   <video src="videos/OST-tutorial.mp4"></video>
+   <h3 class="title">01. yadda ake withdraw a ostmine</h3 >
+ </div>
+
+ <div class="vid">
+   <video src="videos/OST-tutorial.mp4"></video>
+   <h3 class="title">02. yadda ake withdraw a ostmine</h3 >
+ </div>
+
+</div>
+
+</div>
+
+<!--Social media-->
+
+<div style='text-align: center; margin-top: 20px;'>
+  <a id='social1' class="fa fa-whatsapp" href='https://#'></a>
+  <a id='social2' class="fa fa-facebook" href='https://facebook.com'></a>
+  <a id='social3' class="fa fa-twitter" href='https://twitter.com'></a>
+  <a id='social4' class="fa fa-envelope" href='mailto:'></a>
+</div>
+
+<footer>
+<img src="pictures/mbawa2.png" alt="mbawa's photo" style="border-radius: 50%; margin: auto; width: 40%;" />
+  <h5 id="footer-heading">Abdulrahman Muhammad Bawa, Yelwa Yauri, Kebbi State.</h5>
+ <summary>
+ Enterpreneur, Crypto investor/trader, Promoter, Mentor love seeing everyone excell, open-minded.
+ </summary>
+  <summary>
+  <h2>Disclaimer</h2>
+   All information shared on this website in written and/or audio-visual is soley my opinion and not a financial advice. kindly conduct your due deligence.
+  </summary>
+   <br>
+  <p style="font-size: 14px; color: white; font-family: monospace;">&copy Mbawa 2022 <br>All rights reserved</p>
+<br>
+<br>
+<address>
+Coded by <a href='https://wa.me/qr/FT2KO2JJC4UYA1' style ="color: white; text-decoration: underline">sajyab</a>
+</address>
+</footer>
+</body>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+let listVideo = document.querySelectorAll(".video-list .vid");
+let mainVideo = document.querySelector(".main-video video");
+let title = document.querySelector(".main-video .title");
+
+listVideo.forEach(video =>{
+  video.onclick = () =>{
+    listVideo.forEach(vid => vid.classList.remove("active"));
+    video.classList.add("active");
+    if(video.classList.contains("active")){
+      let src = video.children[0].getAttribute("src");
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML;
+      title.innerHTML = text;
+  };
+ };
+});
+
+</script>
+</html>
