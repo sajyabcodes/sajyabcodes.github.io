@@ -197,7 +197,7 @@ a{
   padding: 10px;
  }
 }
-@media (max-width: 750px){
+@media screen and (max-width: 600px){
 .container{
   grid-template-columns: 1fr;
   padding: 10px;
