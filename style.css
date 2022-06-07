@@ -201,5 +201,6 @@ a{
 .container{
   grid-template-columns: 1fr;
   padding: 10px;
+  display: grid;
  }
 }
