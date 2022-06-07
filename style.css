@@ -3,7 +3,6 @@
 }
 body{
   position: flex;
-  font-size: 100%;
   background-color: rgba(0, 0, 0, 0.2);
   font-family: "Sofia", sans-serif;
 }
