@@ -1,0 +1,70 @@
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+  z-index: 3;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+.header{
+  box-shadow: 1px 4px 5px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  padding: 10px;
+  background: #fff;
+}
+.header,img{
+  width: 100%;
+}
+.header-text{
+  text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+ .header,img{
+  width: 50%;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.w3-tag{
+  color: rgba(0,0,255,1.0);
+}
+@media screen and (min-width: 600px) {
+ .mobile-share {
+  visibility: hidden;
+  clear: both;
+  float: left;
+  margin: 10px auto 5px 20px;
+  width: 28%;
+  display: none;
+ }
+}
+ .mobile-share .share{
+  text-decoration: none;
+  color: #fff;
+ }
+ .mobile-share{
+  background: #04AA6D;
+  border: none;
+  border-radius: 15px;
+ }
+li{
+  margin: 40px 0;
+}
