@@ -42,6 +42,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   width: 50%;
   margin: auto;
   margin-bottom: 30px;
+ }
 }
 .w3-tag{
   color: rgba(0,0,255,1.0);
