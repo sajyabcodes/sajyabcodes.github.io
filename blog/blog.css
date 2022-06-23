@@ -66,3 +66,21 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   border: none;
   border-radius: 15px;
  }
+.links{
+ border-radius: 5px;
+ height: 100%;
+ background: #fff;
+ padding: 15px;
+ margin: 10px;
+}
+.links .link{
+ box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+ font-family: verdana, sans-serif;
+ border: 1px solid rgba(0, 0, 0, 0.2);
+ border-radius: 10px;
+ text-align: center;
+ width: 100%;
+ padding: 8px;
+ margin: 10px;
+ overflow: scroll;
+}
