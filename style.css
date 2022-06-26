@@ -241,3 +241,9 @@ a{
  margin: 10px;
  overflow: scroll;
 }
+#mc_embed_signup{
+  background:#fff; 
+  clear:left; 
+  font:14px Helvetica,Arial,sans-serif;  
+  width:600px;
+}
