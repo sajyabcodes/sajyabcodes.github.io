@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SatoshiCash Token</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="name" content="magyy hair salon, Best salon in Birnin Kebbi, best hair dressing salon in Birnin Kebbi, best hair dressing salon in Nigeria, quality hair products, quality women hair, quality hair oils">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		body {
+			background-color: navy;
+			color: white;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			margin-left: 50px;
+			padding: 40px;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		h1 {
+			font-size: 2.5rem;
+			font-weight: bold;
+			margin: 0 0 20px;
+			text-align: center;
+		}
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			margin: 20px 0 0;
+		}
+		label {
+			display: block;
+			font-size: 1.2rem;
+			margin: 0 10px 10px;
+			text-align: center;
+			flex-basis: 100%;
+		}
+		input[type="number"] {
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+			font-size: 1.2rem;
+			padding: 10px;
+			margin: 0 10px;
+			flex-basis: 100%;
+			max-width: 300px;
+		}
+		button[type="submit"] {
+			background-color: #28a745;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+			color: white;
+			cursor: pointer;
+			font-size: 1.2rem;
+			padding: 10px 20px;
+			margin: 0 10px;
+			transition: background-color 0.2s ease-in-out;
+		}
+		button[type="submit"]:hover {
+			background-color: #218838;
+		}
+		button[type="button"] {
+			background-color: #dc3545;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+			color: white;
+			cursor: pointer;
+			font-size: 1.2rem;
+			padding: 10px 20px;
+			margin: 0 10px;
+			transition: background-color 0.2s ease-in-out;
+		}
+		button[type="button"]:hover {
+			background-color: #c82333;
+		}
+		.alert {
+			background-color: #ffc107;
+			border-radius: 5px;
+			box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+			color: black;
+			font-size: 1.2rem;
+			margin: 20px 0;
+			padding: 10px;
+			text-align: center;
+		}
+	</style>
+
+</head>
+<body>
+  <h1>SatoshiCash Token</h1>
+  <p>Minting Price: 1 CORE / 250 STC</p>
+  <p>Burn to Earn Ratio: 1 STC / 300 Wei</p>
+  <br>
+  <br>
+  <br>
+<div class="label">
+  <h2>Token Information</h2>
+  <p>Name: SatoshiCash</p>
+  <p>Symbol: STC</p>
+  <p>Decimals: 9</p>
+  <p>Contract Address: 0x1a49D3a0bc675189f7d3A0d47BA09986f18c0F48</p>
+ </div>
+  <br>
+  <br>
+<div class="form">
+  <h2>My Account</h2>
+  <p>Address: <span id="my-address"></span></p>
+  <p>Balance: <span id="my-balance"></span> STC</p>
+  <p>Locked Balance: <span id="my-locked-balance"></span> STC</p>
+  <p>Days Since Last Minting: <span id="days-since-last-minting"></span></p>
+  <button class="button" onclick="mint()">Mint Tokens</button>
+  <button class="button" onclick="unlock()">Unlock Tokens</button>
+  <button class="button" onclick="burn()">Burn Tokens</button>
+</div>
+  <hr>
+  <h2>Transaction History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Transaction Type</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody id="transaction-history"></tbody>
+  </table>
+  <script>
+    // Replace with the actual contract address
+    const CONTRACT_ADDRESS = "0x1a49D3a0bc675189f7d3A0d47BA09986f18c0F48";
+  
+    // Replace with the address of the user's wallet
+    const MY_ADDRESS = "";
+  
+    // Web3.js initialization
+    const web3 = new Web3(window.ethereum);
+  
+    // Contract initialization
+    const contract = new web3.eth.Contract(
+      [
+        {
+          "inputs": [],
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "decimals",
+          "outputs": [
+            {
+              "internalType": "uint8",
+              "name": "",
+              "type": "uint8"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [],
+          "name": "totalSupply",
