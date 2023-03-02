@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
 	<style>
 		body {
 			background-color: navy;
@@ -139,6 +139,9 @@
     <tbody id="transaction-history"></tbody>
   </table>
   <script>
+	  const web3 = new Web3(window.ethereum);
+await window.ethereum.enable();
+	  
     // Replace with the actual contract address
     const CONTRACT_ADDRESS = "0x1a49D3a0bc675189f7d3A0d47BA09986f18c0F48";
   
