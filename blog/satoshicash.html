@@ -37,6 +37,9 @@
 <br>
 <div id="mintingProgress"></div>
 <script>
+const web3 = new Web3(window.ethereum);
+await window.ethereum.enable();
+
 	function mint() {
   const amount = web3.utils.toWei("250", "ether"); // minting 250 STC tokens
   const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
