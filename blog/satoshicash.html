@@ -37,25 +37,29 @@
 <br>
 <div id="mintingProgress"></div>
 <script>
-const web3 = new Web3(window.ethereum);
-await window.ethereum.enable();
+window.onload = async function() {
+  const web3 = new Web3(window.ethereum);
+  await window.ethereum.enable();
 
-	function mint() {
-  const amount = web3.utils.toWei("250", "ether"); // minting 250 STC tokens
-  const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
-  const contract = new web3.eth.Contract(contractABI, contractAddress);
-  const account = web3.eth.accounts[0]; // user account address
-  contract.methods.mint(amount).send({from: account}, function(err, txHash) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(txHash); // log the transaction hash
-    }
-  });
-}
-function burn() {
-  const amount = web3.utils.toWei("10", "ether"); // burning 10 STC tokens
-  const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
+  const contractABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"indexed":true,"name":"owner","internalType":"address","type":"address"},{"indexed":true,"name":"spender","internalType":"address","type":"address"},{"indexed":false,"name":"value","internalType":"uint256","type":"uint256"}],"name":"Approval","anonymous":false,"type":"event"},{"inputs":[{"indexed":true,"name":"from","internalType":"address","type":"address"},{"indexed":false,"name":"etherAmount","internalType":"uint256","type":"uint256"},{"indexed":false,"name":"tokenAmount","internalType":"uint256","type":"uint256"}],"name":"Burn","anonymous":false,"type":"event"},{"inputs":[{"indexed":true,"name":"from","internalType":"address","type":"address"},{"indexed":false,"name":"etherAmount","internalType":"uint256","type":"uint256"},{"indexed":false,"name":"tokenAmount","internalType":"uint256","type":"uint256"}],"name":"Mint","anonymous":false,"type":"event"},{"inputs":[{"indexed":true,"name":"from","internalType":"address","type":"address"},{"indexed":true,"name":"to","internalType":"address","type":"address"},{"indexed":false,"name":"value","internalType":"uint256","type":"uint256"}],"name":"Transfer","anonymous":false,"type":"event"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[{"name":"owner","internalType":"address","type":"address"},{"name":"spender","internalType":"address","type":"address"}],"name":"allowance","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"bool","type":"bool"}],"inputs":[{"name":"spender","internalType":"address","type":"address"},{"name":"value","internalType":"uint256","type":"uint256"}],"name":"approve","stateMutability":"nonpayable","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[{"name":"","internalType":"address","type":"address"}],"name":"balanceLocked","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[{"name":"account","internalType":"address","type":"address"}],"name":"balanceOf","stateMutability":"view","type":"function"},{"outputs":[],"inputs":[{"name":"value","internalType":"uint256","type":"uint256"}],"name":"burnToEarn","stateMutability":"nonpayable","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"burnToEarnRatio","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint8","type":"uint8"}],"inputs":[],"name":"decimals","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"address","type":"address"}],"inputs":[],"name":"devWallet","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[{"name":"","internalType":"address","type":"address"}],"name":"lastRewardTime","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"marketingFee","stateMutability":"view","type":"function"},{"outputs":[],"inputs":[],"name":"mint","stateMutability":"payable","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"mintingLimit","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"mintingMultiplier","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"mintingPeriod","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"mintingPrice","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"string","type":"string"}],"inputs":[],"name":"name","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"pooledEther","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"string","type":"string"}],"inputs":[],"name":"symbol","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"totalSupply","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"uint256","type":"uint256"}],"inputs":[],"name":"transactionFee","stateMutability":"view","type":"function"},{"outputs":[{"name":"","internalType":"bool","type":"bool"}],"inputs":[{"name":"to","internalType":"address","type":"address"},{"name":"value","internalType":"uint256","type":"uint256"}],"name":"transfer","stateMutability":"nonpayable","type":"function"},{"outputs":[{"name":"","internalType":"bool","type":"bool"}],"inputs":[{"name":"from","internalType":"address","type":"address"},{"name":"to","internalType":"address","type":"address"},{"name":"value","internalType":"uint256","type":"uint256"}],"name":"transferFrom","stateMutability":"nonpayable","type":"function"},{"outputs":[],"inputs":[],"name":"unlock","stateMutability":"nonpayable","type":"function"}]; // Add your STC contract ABI here
+
+  function mint() {
+    const amount = web3.utils.toWei("250", "ether"); // minting 250 STC tokens
+    const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
+    const account = web3.eth.accounts[0]; // user account address
+    contract.methods.mint(amount).send({from: account}, function(err, txHash) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log(txHash); // log the transaction hash
+      }
+    });
+  }
+  
+  function burn() {
+    const amount = web3.utils.toWei("10", "ether"); // burning 10 STC tokens
+    const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
   const contract = new web3.eth.Contract(contractABI, contractAddress);
   const account = web3.eth.accounts[0]; // user account address
   contract.methods.burn(amount).send({from: account}, function(err, txHash) {
@@ -66,7 +70,6 @@ function burn() {
     }
   });
 }
-window.onload = function() {
   function getMintingProgress() {
   const contractAddress = "0x1a49d3a0bc675189f7d3a0d47ba09986f18c0f48"; // STC contract address
   const contract = new web3.eth.Contract(contractABI, contractAddress);
@@ -80,7 +83,7 @@ window.onload = function() {
       document.getElementById("mintingProgress").innerHTML = progressMessage;
     }
   });
-}
+ }
 };
 
-	</script>
+</script>
